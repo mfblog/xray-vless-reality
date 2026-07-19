@@ -186,6 +186,23 @@ bash <(curl -L https://github.com/crazypeace/xray-vless-reality/raw/main/install
 bash <(curl -L https://github.com/crazypeace/xray-vless-reality/raw/main/install.sh) 6 443 learn.microsoft.com 1b0b723f-0544-4f9c-8df8-2b8975c5e47a
 ```
 
+# 脚本支持用环境变量设置参数
+当定义了至少一个环境变量后, 参数就被忽略, 以环境变量为准  
+当定义了至少一个环境变量后, 跳过交互式流程, 未设置的参数使用默认值  
+
+你可以设置长期有效的环境变量, 如  
+```
+export _MYIP_=1.2.3.4
+export _MYPORT_=8443
+export _MYDOMAIN_=example.com
+export _MYUUID_=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+bash install.sh
+```
+
+你也可以使用只在脚本执行时有效的环境变量, 如  
+```
+_MYIP_="1.2.3.4" bash install.sh
+```
 
 # 用你的STAR告诉我这个Repo对你有用 Welcome STARs! :)
 [![Stargazers over time](https://starchart.cc/crazypeace/xray-vless-reality.svg)](https://starchart.cc/crazypeace/xray-vless-reality)
